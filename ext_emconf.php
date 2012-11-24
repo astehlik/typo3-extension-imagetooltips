@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "imagetooltips".
  *
- * Auto generated 24-11-2012 17:58
+ * Auto generated 24-11-2012 18:00
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'jquery TOOLS tooltips for tt_content images',
 	'category' => 'fe',
 	'shy' => 0,
-	'version' => '0.0.0',
+	'version' => '0.1.0',
 	'dependencies' => 'cms',
 	'conflicts' => '',
 	'priority' => '',
