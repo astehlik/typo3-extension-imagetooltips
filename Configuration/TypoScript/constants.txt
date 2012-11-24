@@ -1,0 +1,6 @@
+
+plugin.imagetooltips {
+
+		# cat=plugin.imagetooltips; type=int+; label=Tooltips PID: UID of the page where the tooltips are stored
+	tooltipsPid = 0
+}

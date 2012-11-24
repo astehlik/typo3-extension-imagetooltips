@@ -1,0 +1,18 @@
+
+page {
+
+	includeCSS.tx-imagetooltips = EXT:imagetooltips/Resources/Public/Css/Example.css
+
+	includeJSFooter {
+
+		jquery = http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js
+        jquery.external = 1
+
+        jquery-tools = http://cdn.jquerytools.org/1.2.7/tiny/jquery.tools.min.js
+        jquery-tools.external = 1
+
+		tx-imagetooltips = EXT:imagetooltips/Resources/Public/JavaScript/TooltipInitialization.js
+
+	}
+
+}

@@ -1,0 +1,16 @@
+
+includeLibs.tx_imagetooltips_TooltipPlugin = typo3conf/ext/imagetooltips/Classes/TooltipPlugin.php
+
+tt_content.image.20.rendering {
+
+	dl.oneImageStdWrap {
+		postUserFunc < plugin.tx_imagetooltips_TooltipPlugin.userFunc
+		postUserFunc.tooltipsPid = {$plugin.imagetooltips.tooltipsPid}
+	}
+
+	ul.oneImageStdWrap.postUserFunc < .dl.oneImageStdWrap.postUserFunc
+	div.oneImageStdWrap.postUserFunc < .dl.oneImageStdWrap.postUserFunc
+
+	simple.imageStdWrap.postUserFunc < .dl.oneImageStdWrap.postUserFunc
+	simple.imageStdWrapNoWidth.postUserFunc < .dl.oneImageStdWrap.postUserFunc
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Database labels</description>
+		<type>database</type>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_imagetooltips_tooltip">Image tooltip</label>
+			<label index="tx_imagetooltips_tooltip.description">Description</label>
+			<label index="tx_imagetooltips_tooltip.related_content_element">Related content element</label>
+			<label index="tx_imagetooltips_tooltip.related_image_position">Image position (starting from zero)</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_text">Tooltip text</label>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -1,0 +1,12 @@
+
+.tx-imagetooltips-tooltip
+{
+	background-color: #fff;
+	border: 1px solid #cecece;
+	box-shadow: 0.5px 0.5px 3px #cecece;
+	font-size: 12px;
+	padding: 12px;
+	display:none;
+	width:310px;
+	z-index: 1001;
+}
