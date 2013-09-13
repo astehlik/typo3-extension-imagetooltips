@@ -6,6 +6,7 @@ tt_content.image.20.rendering {
 	dl.oneImageStdWrap {
 		postUserFunc < plugin.tx_imagetooltips_TooltipPlugin.userFunc
 		postUserFunc.tooltipsPid = {$plugin.imagetooltips.tooltipsPid}
+		postUserFunc.useT3jquery = {$plugin.imagetooltips.useT3jquery}
 	}
 
 	ul.oneImageStdWrap.postUserFunc < .dl.oneImageStdWrap.postUserFunc

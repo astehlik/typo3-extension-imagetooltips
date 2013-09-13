@@ -1,6 +1,9 @@
 
 plugin.imagetooltips {
 
-		# cat=plugin.imagetooltips; type=int+; label=Tooltips PID: UID of the page where the tooltips are stored
+	# cat=plugin.imagetooltips; type=int+; label=Tooltips PID: UID of the page where the tooltips are stored
 	tooltipsPid = 0
+
+	# cat=plugin.imagetooltips; type=boolean; label=Use t3query: If this is TRUE an the t3jquery extension is loaded the required JavaScript files will be automatically loaded using the t3jquery API.
+	useT3jquery = 0
 }

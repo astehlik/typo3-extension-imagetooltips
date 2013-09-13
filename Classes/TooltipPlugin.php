@@ -87,6 +87,17 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 			return $content;
 		}
 
+		// checks if t3jquery is loaded
+		if ($conf['useT3jquery'] && t3lib_extMgm::isLoaded('t3jquery')) {
+
+			require_once(t3lib_extMgm::extPath('t3jquery').'class.tx_t3jquery.php');
+
+			if (T3JQUERY === true) {
+				tx_t3jquery::addJqJS();
+				tx_t3jquery::addJsFile(t3lib_extMgm::extRelPath('imagetooltips') . 'Resources/Public/JavaScript/TooltipInitialization.js');
+			}
+		}
+
 		return $content . '<div class="tx-imagetooltips-tooltip">' . $tooltipResult['tooltip_text'] . '</div>';
 	}
 
