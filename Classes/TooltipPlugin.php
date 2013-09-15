@@ -87,14 +87,17 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 			return $content;
 		}
 
-		// checks if t3jquery is loaded
-		if ($conf['useT3jquery'] && t3lib_extMgm::isLoaded('t3jquery')) {
+		$enableT3jquery = $conf['t3jquery.']['enable'];
+		if (isset($conf['t3jquery.']['enable.'])) {
+			$enableT3jquery = $this->cObj->stdWrap($enableT3jquery, $conf['t3jquery.']['enable.']);
+		}
 
-			require_once(t3lib_extMgm::extPath('t3jquery').'class.tx_t3jquery.php');
+		if ($enableT3jquery && t3lib_extMgm::isLoaded('t3jquery')) {
 
-			if (T3JQUERY === true) {
-				tx_t3jquery::addJqJS();
-				tx_t3jquery::addJsFile(t3lib_extMgm::extRelPath('imagetooltips') . 'Resources/Public/JavaScript/TooltipInitialization.js');
+			require_once(t3lib_extMgm::extPath('t3jquery') . 'class.tx_t3jquery.php');
+
+			if (T3JQUERY === TRUE) {
+				tx_t3jquery::addJs('', $conf['t3jquery.']['config.']);
 			}
 		}
 
@@ -135,7 +138,7 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 
 		$tooltipsPid = intval($this->conf['tooltipsPid']);
 
-			// search in current page and in tooltips page, if defined
+		// search in current page and in tooltips page, if defined
 		$tooltipEnableFieldQuery = ' AND (tx_imagetooltips_tooltip.pid=' . $this->tsfe->id;
 		$tooltipEnableFieldQuery .= $tooltipsPid ? ' OR tx_imagetooltips_tooltip.pid=' . $tooltipsPid . ')' : ')';
 		$tooltipEnableFieldQuery .= $this->cObj->enableFields('tx_imagetooltips_tooltip');

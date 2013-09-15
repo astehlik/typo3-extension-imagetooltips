@@ -6,7 +6,12 @@ tt_content.image.20.rendering {
 	singleNoCaption.singleStdWrap {
 		postUserFunc < plugin.tx_imagetooltips_TooltipPlugin.userFunc
 		postUserFunc.tooltipsPid = {$plugin.imagetooltips.tooltipsPid}
-		postUserFunc.useT3jquery = {$plugin.imagetooltips.useT3jquery}
+		postUserFunc.t3jquery {
+			enable = {$plugin.imagetooltips.t3jquery.enable}
+			config {
+				jsfile = {$plugin.imagetooltips.t3jquery.tooltipJsFile}
+			}
+		}
 	}
 
 	noCaption.singleStdWrap.postUserFunc < .singleNoCaption.singleStdWrap.postUserFunc
