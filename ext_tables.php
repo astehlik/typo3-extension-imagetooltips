@@ -1,5 +1,7 @@
 <?php
-if (!defined('TYPO3_MODE')) die ('Access denied.');
+if (!defined('TYPO3_MODE')) {
+	die ('Access denied.');
+}
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/', 'Image tooltip rendering');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/4.5/', 'Image tooltip rendering 4.5 & 4.6');

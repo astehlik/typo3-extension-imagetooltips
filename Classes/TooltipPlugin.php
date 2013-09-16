@@ -75,7 +75,7 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 	 * @param $conf
 	 * @return string
 	 */
-	function main($content, $conf) {
+	public function main($content, $conf) {
 
 		$this->conf = $conf;
 		$this->tsfe = $GLOBALS['TSFE'];
