@@ -50,7 +50,6 @@ $TCA['tx_imagetooltips_tooltip'] = array(
 			'label' => 'LLL:EXT:imagetooltips/Resources/Private/Language/locallang_db.xml:tx_imagetooltips_tooltip.related_image_position',
 			'config' => array(
 				'type' => 'input',
-				'max' => '256',
 				'eval' => 'int',
 				'size' => 10,
 			)
@@ -60,7 +59,6 @@ $TCA['tx_imagetooltips_tooltip'] = array(
 			'label' => 'LLL:EXT:imagetooltips/Resources/Private/Language/locallang_db.xml:tx_imagetooltips_tooltip.tooltip_text',
 			'config' => array(
 				'type' => 'text',
-				'eval' => 'int',
 			),
 			'defaultExtras' => 'richtext[]',
 		),
