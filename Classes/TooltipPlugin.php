@@ -25,6 +25,44 @@
 class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 
 	/**
+	 * Appearance data attribute configuration
+	 *
+	 * @var array
+	 */
+	protected $appearanceAttributes = array(
+		'tx-imagetooltips-position-x' => array(
+			'configurationKey' => 'positionX',
+			'column' => 'tooltip_position_x',
+			'type' => 'tooltipsPositionHorizontal',
+			'defaultValue' => 'center',
+		),
+		'tx-imagetooltips-position-y' => array(
+			'configurationKey' => 'positionY',
+			'column' => 'tooltip_position_y',
+			'type' => 'tooltipsPositionVertical',
+			'defaultValue' => 'top',
+		),
+		'tx-imagetooltips-offset-x' => array(
+			'configurationKey' => 'offsetX',
+			'column' => 'tooltip_offset_x',
+			'type' => 'int',
+			'defaultValue' => 0,
+		),
+		'tx-imagetooltips-offset-y' => array(
+			'configurationKey' => 'offsetY',
+			'column' => 'tooltip_offset_y',
+			'type' => 'int',
+			'defaultValue' => 0,
+		),
+		'tx-imagetooltips-opacity' => array(
+			'configurationKey' => 'opacity',
+			'column' => 'tooltip_opacity',
+			'type' => 'int',
+			'defaultValue' => 100,
+		),
+	);
+
+	/**
 	 * Should be same as classname of the plugin, used for CSS classes, variables
 	 *
 	 * @var string
@@ -67,6 +105,24 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 	protected $typo3Db;
 
 	/**
+	 * Allowed tooltip positions for the different directions
+	 *
+	 * @var array
+	 */
+	protected $validTooltipPositions = array(
+		'vertical' => array(
+			'top',
+			'center',
+			'bottom'
+		),
+		'horizontal' => array(
+			'left',
+			'center',
+			'right'
+		),
+	);
+
+	/**
 	 * Renders the tooltip container if one was found for the current image.
 	 *
 	 * Use this as as userFunc in a stdWrap property
@@ -101,7 +157,71 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 			}
 		}
 
-		return $content . '<div class="tx-imagetooltips-tooltip">' . $tooltipResult['tooltip_text'] . '</div>';
+		$dataAttributesString = $this->getAppearanceAttributesForTooltip($tooltipResult);
+
+		return $content . '<div class="tx-imagetooltips-tooltip"' . $dataAttributesString . '>' . $tooltipResult['tooltip_text'] . '</div>';
+	}
+
+	/**
+	 * Runs through all configured appearance attributes and generates
+	 * the matching data tag string
+	 *
+	 * @param array $tooltipResult
+	 * @return string data tags with a leading space, e.g. ' data-tx-imagetooltips-opacity="80"'
+	 */
+	protected function getAppearanceAttributesForTooltip($tooltipResult) {
+
+		if (!is_array($this->conf['appearance.'])) {
+			return '';
+		}
+
+		$appearanceConfig = $this->conf['appearance.'];
+		$dataAttributesString = '';
+		$dataAttributes = array();
+
+		foreach ($this->appearanceAttributes as $dataAttributeName => $appearanceAttributeConfig) {
+
+			$configurationKey = $appearanceAttributeConfig['configurationKey'];
+			$column = $appearanceAttributeConfig['column'];
+
+			$value = isset($appearanceConfig[$configurationKey]) ? $appearanceConfig[$configurationKey] : '';
+			$value = isset($tooltipResult[$column]) && strlen(trim($tooltipResult[$column])) ? $tooltipResult[$column] : $value;
+			$value = trim($value);
+
+			if (!strlen($value)) {
+				continue;
+			}
+
+			switch ($appearanceAttributeConfig['type']) {
+				case 'tooltipsPositionHorizontal':
+				case 'tooltipsPositionVertical':
+					$value = $this->getValidTooltipPosition($appearanceAttributeConfig['type'], $value);
+					if ($value === FALSE) {
+						continue;
+					}
+					break;
+				case 'int':
+					$value = intval($value);
+					break;
+			}
+
+			if ($value == $appearanceAttributeConfig['defaultValue']) {
+				continue;
+			}
+
+			// make sure opacity value is valid
+			if ($dataAttributeName == 'tx-imagetooltips-opacity') {
+				$value = t3lib_div::intInRange($value, 0, 100);
+			}
+
+			$dataAttributes['data-' . $dataAttributeName] = $value;
+			$dataAttributesString = t3lib_div::implodeAttributes($dataAttributes, TRUE);
+			if (strlen($dataAttributesString)) {
+				$dataAttributesString = ' ' . $dataAttributesString;
+			}
+		}
+
+		return $dataAttributesString;
 	}
 
 	/**
@@ -126,6 +246,25 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 		} else {
 			return $tooltips[$currentImagePosition];
 		}
+	}
+
+	/**
+	 * Checks if the given $value is a valid value for the given tooltip $type.
+	 *
+	 * @param string $type either "tooltipsPositionHorizontal" or "tooltipsPositionVertical"
+	 * @param string $value the value that should be checked
+	 * @return mixed FALSE if invalid, otherwise $value
+	 */
+	protected function getValidTooltipPosition($type, $value) {
+
+		$tooltipPosition = FALSE;
+		$type = $type == 'tooltipsPositionHorizontal' ? 'horizontal' : 'vertical';
+
+		if (in_array($value, $this->validTooltipPositions[$type])) {
+			$tooltipPosition = $value;
+		}
+
+		return $tooltipPosition;
 	}
 
 	/**

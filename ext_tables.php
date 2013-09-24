@@ -21,7 +21,8 @@ $TCA['tx_imagetooltips_tooltip'] = array(
 			'disabled' => 'hidden',
 		),
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'ext_icon.gif',
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/Tca.php'
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/Tca.php',
+		'dividers2tabs' => 1
 	)
 );
 

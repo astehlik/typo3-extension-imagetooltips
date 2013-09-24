@@ -1,17 +1,36 @@
 
-# customsubcategory=basic=Basic settings
+# customsubcategory=10basic=Basic settings
 plugin.imagetooltips {
 
-	# cat=plugin.imagetooltips/basic/10; type=int+; label=Tooltips PID: UID of the page where the tooltips are stored
+	# cat=plugin.imagetooltips/10basic/10; type=int+; label=Tooltips PID: UID of the page where the tooltips are stored
 	tooltipsPid = 0
 
-	# customsubcategory=t3jquery=t3jquery settings
+	# customsubcategory=20appearance=Appearance
+	appearance {
+
+		# cat=plugin.imagetooltips/20appearance/10; type=options[left,center,right]; label=Horizontal position: Position of the Tooltip relative to the related content element.
+		positionX = center
+
+		# cat=plugin.imagetooltips/20appearance/20; type=options[top,center,bottom]; label=Vertical Position: Position of the Tooltip relative to the related content element.
+		positionY = top
+
+		# cat=plugin.imagetooltips/20appearance/30; type=int; label=Horizontal offset: Offset of Tooltip in horizontal direction in pixels, seen from left (may be negative, default zero). Mind the gap!
+		offsetX = 0
+
+		# cat=plugin.imagetooltips/20appearance/40; type=int; label=Vertical offset: Offset of Tooltip in vertical direction in pixels, seen from above (may be negative, default zero). Mind the gap!
+		offsetY = 0
+
+		# cat=plugin.imagetooltips/20appearance/50; type=int[0-100]; label=Opacity: Opacity of Tooltip in % (0 .. 100 allowed, default 100)
+		opacity = 100
+	}
+
+	# customsubcategory=30t3jquery=t3jquery settings
 	t3jquery {
 
-		# cat=plugin.imagetooltips/t3jquery/10; type=boolean; label=Use t3query: If this is TRUE an the t3jquery extension is loaded the required JavaScript files will be automatically loaded using the t3jquery API.
+		# cat=plugin.imagetooltips/30t3jquery/10; type=boolean; label=Use t3query: If this is TRUE an the t3jquery extension is loaded the required JavaScript files will be automatically loaded using the t3jquery API.
 		enable = 0
 
-		# cat=plugin.imagetooltips/t3jquery/20; type=string; label=Tooltip JS file: The file that is included using t3query
+		# cat=plugin.imagetooltips/30t3jquery/20; type=string; label=Tooltip JS file: The file that is included using t3query
 		tooltipJsFile = EXT:imagetooltips/Resources/Public/JavaScript/TooltipInitialization.js
-	}
+	}:
 }

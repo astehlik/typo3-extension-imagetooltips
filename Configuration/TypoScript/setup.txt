@@ -6,6 +6,13 @@ tt_content.image.20.rendering {
 	singleNoCaption.singleStdWrap {
 		postUserFunc < plugin.tx_imagetooltips_TooltipPlugin.userFunc
 		postUserFunc.tooltipsPid = {$plugin.imagetooltips.tooltipsPid}
+		postUserFunc.appearance {
+			positionX = {$plugin.imagetooltips.appearance.positionX}
+			positionY = {$plugin.imagetooltips.appearance.positionY}
+			offsetX = {$plugin.imagetooltips.appearance.offsetX}
+			offsetY = {$plugin.imagetooltips.appearance.offsetY}
+			opacity = {$plugin.imagetooltips.appearance.opacity}
+		}
 		postUserFunc.t3jquery {
 			enable = {$plugin.imagetooltips.t3jquery.enable}
 			config {

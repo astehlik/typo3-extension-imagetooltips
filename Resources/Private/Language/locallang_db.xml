@@ -11,6 +11,41 @@
 			<label index="tx_imagetooltips_tooltip.related_content_element">Related content element</label>
 			<label index="tx_imagetooltips_tooltip.related_image_position">Image position (starting from zero)</label>
 			<label index="tx_imagetooltips_tooltip.tooltip_text">Tooltip text</label>
+			<label index="tabs.appearance">Appearance</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x">Horizontal position of the Tooltip relative to the related content elemant above</label>>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.default">Default</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.left">Left</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.center">Center</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.right">Right</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y">Vertical position of the Tooltip relative to the related content elemant above</label>>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.default">Default</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.top">Top</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.center">Center</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.bottom">Bottom</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_offset_x">Offset of Tooltip in horizontal direction in pixels, seen from left (may be negative). Remember the GAP!</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_offset_y">Offset of Tooltip in vertical direction in pixels, seen from above (may be negative). Remember the GAP!</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_opacity">Opacity of Tooltip in % (0 .. 100 allowed, default 100)</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_imagetooltips_tooltip">Image-Tooltip</label>
+			<label index="tx_imagetooltips_tooltip.description">Beschreibung</label>
+			<label index="tx_imagetooltips_tooltip.related_content_element">Content-Element, für welches dies ein Tooltip sein soll</label>
+			<label index="tx_imagetooltips_tooltip.related_image_position">Bildnummer innerhalb diese Content-Elements (beginnend bei 0)</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_text">Text des Tooltps</label>
+			<label index="tabs.appearance">Erscheinungsbild</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x">Horizontale Position des Tooltips relativ zum Content-Element</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.default">Standard</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.left">Links</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.center">Mitte</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.right">Rechts</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y">Vertikale Position des Tooltips relativ zum Content-Element</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.default">Standard</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.top">Oben</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.center">Mitte</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.bottom">Unten</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_offset_x">Veschiebung des Tooltips in horizontaler Richtung in Pixeln, ausgehend von links (kann negativ sein). Denk an die LÜCKE!</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_offset_y">Veschiebung des Tooltips in vertikaler Richtung in Pixeln, ausgehend von oben (kann negativ sein). Denk an die LÜCKE!</label>
+			<label index="tx_imagetooltips_tooltip.tooltip_opacity">Deckkraft (Nicht-Transparenz) des Tooltips in % (0 .. 100 erlaubt)</label>
 		</languageKey>
 	</data>
 </T3locallang>
