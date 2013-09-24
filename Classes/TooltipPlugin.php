@@ -25,6 +25,13 @@
 class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 
 	/**
+	 * Attributes added to the tooltip container
+	 *
+	 * @var array
+	 */
+	protected $additionalContainerAttributes;
+
+	/**
 	 * Appearance data attribute configuration
 	 *
 	 * @var array
@@ -136,6 +143,7 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 		$this->conf = $conf;
 		$this->tsfe = $GLOBALS['TSFE'];
 		$this->typo3Db = $GLOBALS['TYPO3_DB'];
+		$this->additionalContainerAttributes = array();
 
 		$tooltipResult = $this->getTooltipsForCurrentImage();
 
@@ -157,9 +165,14 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 			}
 		}
 
-		$dataAttributesString = $this->getAppearanceAttributesForTooltip($tooltipResult);
+		$this->generateAppearanceDataAttributes($tooltipResult);
 
-		return $content . '<div class="tx-imagetooltips-tooltip"' . $dataAttributesString . '>' . $tooltipResult['tooltip_text'] . '</div>';
+		$containerAttributes = t3lib_div::implodeAttributes($this->additionalContainerAttributes, TRUE);
+		if (strlen($containerAttributes)) {
+			$containerAttributes = ' ' . $containerAttributes;
+		}
+
+		return $content . '<div class="tx-imagetooltips-tooltip"' . $containerAttributes . '>' . $tooltipResult['tooltip_text'] . '</div>';
 	}
 
 	/**
@@ -167,17 +180,15 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 	 * the matching data tag string
 	 *
 	 * @param array $tooltipResult
-	 * @return string data tags with a leading space, e.g. ' data-tx-imagetooltips-opacity="80"'
+	 * @return void
 	 */
-	protected function getAppearanceAttributesForTooltip($tooltipResult) {
+	protected function generateAppearanceDataAttributes($tooltipResult) {
 
 		if (!is_array($this->conf['appearance.'])) {
-			return '';
+			return;
 		}
 
 		$appearanceConfig = $this->conf['appearance.'];
-		$dataAttributesString = '';
-		$dataAttributes = array();
 
 		foreach ($this->appearanceAttributes as $dataAttributeName => $appearanceAttributeConfig) {
 
@@ -214,14 +225,8 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 				$value = t3lib_div::intInRange($value, 0, 100);
 			}
 
-			$dataAttributes['data-' . $dataAttributeName] = $value;
-			$dataAttributesString = t3lib_div::implodeAttributes($dataAttributes, TRUE);
-			if (strlen($dataAttributesString)) {
-				$dataAttributesString = ' ' . $dataAttributesString;
-			}
+			$this->additionalContainerAttributes['data-' . $dataAttributeName] = $value;
 		}
-
-		return $dataAttributesString;
 	}
 
 	/**
@@ -234,6 +239,9 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 
 		$currentContentUid = intval($this->cObj->data['uid']);
 		$currentImagePosition = intval($this->tsfe->register['IMAGE_NUM_CURRENT']);
+
+		$this->additionalContainerAttributes['data-tx-imagetooltips-related-content-element'] = $currentContentUid;
+		$this->additionalContainerAttributes['data-tx-imagetooltips-related-image-position'] = $currentImagePosition;
 
 		if (!array_key_exists($currentContentUid, self::$tooltipCache)) {
 			$this->loadTooltipsFromDatabase($currentContentUid);
