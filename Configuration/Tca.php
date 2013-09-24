@@ -50,8 +50,9 @@ $TCA['tx_imagetooltips_tooltip'] = array(
 			'label' => 'LLL:EXT:imagetooltips/Resources/Private/Language/locallang_db.xml:tx_imagetooltips_tooltip.related_image_position',
 			'config' => array(
 				'type' => 'input',
-				'eval' => 'int',
 				'size' => 10,
+				// we use num instead of int because 0 will be displayed as empty string
+				'eval' => 'num',
 			)
 		),
 
