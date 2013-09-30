@@ -167,12 +167,13 @@ class tx_imagetooltips_TooltipPlugin extends tslib_pibase {
 
 		$this->generateAppearanceDataAttributes($tooltipResult);
 
-		$containerAttributes = t3lib_div::implodeAttributes($this->additionalContainerAttributes, TRUE);
-		if (strlen($containerAttributes)) {
-			$containerAttributes = ' ' . $containerAttributes;
-		}
+		$containerAttributes = array(
+			'class' => 'tx-imagetooltips-tooltip tx-imagetooltips-tooltip-' . $tooltipResult['uid'],
+		);
+		$containerAttributes = array_merge($containerAttributes, $this->additionalContainerAttributes);
+		$containerAttributes = t3lib_div::implodeAttributes($containerAttributes, TRUE);
 
-		return $content . '<div class="tx-imagetooltips-tooltip"' . $containerAttributes . '>' . $tooltipResult['tooltip_text'] . '</div>';
+		return $content . '<div '. $containerAttributes . '>' . $tooltipResult['tooltip_text'] . '</div>';
 	}
 
 	/**
