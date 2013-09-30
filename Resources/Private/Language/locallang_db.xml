@@ -12,12 +12,12 @@
 			<label index="tx_imagetooltips_tooltip.related_image_position">Image position (starting from zero)</label>
 			<label index="tx_imagetooltips_tooltip.tooltip_text">Tooltip text</label>
 			<label index="tabs.appearance">Appearance</label>
-			<label index="tx_imagetooltips_tooltip.tooltip_position_x">Horizontal position of the Tooltip relative to the related content elemant above</label>>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_x">Horizontal position of the Tooltip relative to the related content element</label>>
 			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.default">Default</label>
 			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.left">Left</label>
 			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.center">Center</label>
 			<label index="tx_imagetooltips_tooltip.tooltip_position_x.I.right">Right</label>
-			<label index="tx_imagetooltips_tooltip.tooltip_position_y">Vertical position of the Tooltip relative to the related content elemant above</label>>
+			<label index="tx_imagetooltips_tooltip.tooltip_position_y">Vertical position of the Tooltip relative to the related content element</label>>
 			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.default">Default</label>
 			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.top">Top</label>
 			<label index="tx_imagetooltips_tooltip.tooltip_position_y.I.center">Center</label>
