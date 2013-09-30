@@ -28,4 +28,6 @@ $TCA['tx_imagetooltips_tooltip'] = array(
 
 t3lib_extMgm::allowTableOnStandardPages('tx_imagetooltips_tooltip');
 
+t3lib_extMgm::addLLrefForTCAdescr('tx_imagetooltips_tooltip','EXT:imagetooltips/Resources/Private/Language/locallang_csh_tooltip.xml');
+
 ?>
