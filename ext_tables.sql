@@ -1,6 +1,12 @@
 #
 # Table structure for table 'tx_imagetooltips_tooltip'
 #
+# Hint: the tooltip_position / tooltip_offset / tooltip_opacity
+# columns need to be varchars so that we can distinguish between
+# a zero integer and an empty value.
+#
+# TODO: in TYPO3 6 the varchars columns might be replaced with nullable int columns
+#
 CREATE TABLE tx_imagetooltips_tooltip (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -13,9 +19,6 @@ CREATE TABLE tx_imagetooltips_tooltip (
 	related_content_element int(11) unsigned DEFAULT '0' NOT NULL,
 	related_image_position int(11) unsigned DEFAULT '0' NOT NULL,
 	tooltip_text text,
-
-	-- these need to be varchar columns, otherwise we can not
-	-- tell if the value is zero or empty
 	tooltip_position_x varchar(255) DEFAULT '' NOT NULL,
 	tooltip_position_y varchar(255) DEFAULT '' NOT NULL,
 	tooltip_offset_x varchar(255) DEFAULT '' NOT NULL,
