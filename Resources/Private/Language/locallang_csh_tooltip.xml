@@ -7,22 +7,25 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
+			<label index="description.description">This is just an internal description that can help you to identify the different tooltips. It will not be displayed in the Frontend.</label>
+			<label index="related_content_element.description">The "Images" / "Text &amp; Images" content element in which the tooltip should be displayed.</label>
 			<label index="related_image_position.description">The position (starting from zero) of the image in the related content element for which this tooltip should be displayed</label>
 			<label index="tooltip_text.description">The text that will be shown as tooltip for the specified image</label>
 			<label index="tooltip_position_x.description">Horizontal position of the Tooltip relative to the related content element</label>>
 			<label index="tooltip_position_y.description">Vertical position of the Tooltip relative to the related content element</label>>
-			<label index="tooltip_offset_x.description">Offset of Tooltip in horizontal direction in pixels, seen from left (may be negative). Remember the GAP!</label>
-			<label index="tooltip_offset_y.description">Offset of Tooltip in vertical direction in pixels, seen from above (may be negative). Remember the GAP!</label>
+			<label index="tooltip_offset_x.description">Offset of Tooltip in horizontal direction in pixels, seen from the position chosen above (may be negative).</label>
+			<label index="tooltip_offset_y.description">Offset of Tooltip in vertical direction in pixels, seen from the position chosen above (may be negative).</label>
 			<label index="tooltip_opacity.description">Opacity of Tooltip in % (0 .. 100 allowed, default 100)</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="related_content_element.description">Das Inhaltselement, für das dieser Tooltip angezeigt werden soll</label>
+			<label index="description.description">Diese Beschreibung kann dazu genutzt werden, Tooltips leichter zu identifizieren. Sie wird nicht im Frontend angezeigt.</label>
+			<label index="related_content_element.description">Das "Bilder"" bzw. "Text und Bilder" Inhaltselement, in dem der Tooltip angezeigt werden soll.</label>
 			<label index="related_image_position.description">Position (beginnend bei 0) des Bildes innerhalb des gewählten Inhaltselements für das dieser Tooltip angezeigt werden soll.</label>
 			<label index="tooltip_text.description">Der Text, der als Tooltip angezeigt wird.</label>
 			<label index="tooltip_position_x.description">Horizontale Position des Tooltips relativ zum Content-Element</label>
 			<label index="tooltip_position_y.description">Vertikale Position des Tooltips relativ zum Content-Element</label>
-			<label index="tooltip_offset_x.description">Veschiebung des Tooltips in horizontaler Richtung in Pixeln, ausgehend von links (kann negativ sein). Denk an die LÜCKE!</label>
-			<label index="tooltip_offset_y.description">Veschiebung des Tooltips in vertikaler Richtung in Pixeln, ausgehend von oben (kann negativ sein). Denk an die LÜCKE!</label>
+			<label index="tooltip_offset_x.description">Verschiebung des Tooltips in horizontaler Richtung in Pixeln, ausgehend von der oben gewählten Position (kann negativ sein).</label>
+			<label index="tooltip_offset_y.description">Verschiebung des Tooltips in vertikaler Richtung in Pixeln, ausgehend von der oben gewählten Position (kann negativ sein).</label>
 			<label index="tooltip_opacity.description">Deckkraft (Nicht-Transparenz) des Tooltips in % (0 .. 100 erlaubt)</label>
 		</languageKey>
 	</data>

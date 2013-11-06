@@ -14,10 +14,10 @@ plugin.imagetooltips {
 		# cat=plugin.imagetooltips/20appearance/20; type=options[top,center,bottom]; label=Vertical Position: Position of the Tooltip relative to the related content element.
 		positionY = top
 
-		# cat=plugin.imagetooltips/20appearance/30; type=int; label=Horizontal offset: Offset of Tooltip in horizontal direction in pixels, seen from left (may be negative, default zero). Mind the gap!
+		# cat=plugin.imagetooltips/20appearance/30; type=int; label=Horizontal offset: Offset of Tooltips in horizontal direction in pixels, seen from the position chosen above (may be negative, default zero).
 		offsetX = 0
 
-		# cat=plugin.imagetooltips/20appearance/40; type=int; label=Vertical offset: Offset of Tooltip in vertical direction in pixels, seen from above (may be negative, default zero). Mind the gap!
+		# cat=plugin.imagetooltips/20appearance/40; type=int; label=Vertical offset: Offset of Tooltips in vertical direction in pixels, seen from the position chosen above (may be negative, default zero).
 		offsetY = 0
 
 		# cat=plugin.imagetooltips/20appearance/50; type=int[0-100]; label=Opacity: Opacity of Tooltip in % (0 .. 100 allowed, default 100)
