@@ -1,0 +1,5 @@
+{
+	"name": "de-swebhosting-typo3-extension/imagetooltips",
+	"description": "jquery TOOLS tooltips for tt_content images",
+	"type": "typo3-cms-extension"
+}
